@@ -1,10 +1,11 @@
-package com.example.Aula;
+package com.example.Aula.controller;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.example.Aula.Cliente;
-import com.example.Aula.Repository;
+import com.example.Aula.entity.Cliente;
+import com.example.Aula.dto.ClienteDTO;
+import com.example.Aula.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
