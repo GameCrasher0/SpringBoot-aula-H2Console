@@ -1,6 +1,7 @@
 package com.example.aula.controller;
 
 import com.example.aula.entity.Cliente;
+import com.example.aula.entity.Produto;
 import com.example.aula.repository.Repository;
 import com.example.aula.dto.clienteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,10 @@ public class Controller {
     Repository repository;
 
     @PostMapping
-    public Cliente creat(@RequestBody @Valid Cliente cliente){
+    public Cliente create(@RequestBody @Valid Cliente cliente){
+        for(Produto p : cliente.getProdutos()){
+            p.setPrecoTotal(p.getPrecoUnitario()*p.getQuantidade());
+        }
         Cliente clienteSaved = repository.save(cliente);
         return clienteSaved;
     }
