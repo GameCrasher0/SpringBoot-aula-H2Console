@@ -1,10 +1,11 @@
-package com.example.Aula;
+package com.example.Aula.controller;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.example.Aula.Cliente;
-import com.example.Aula.Repository;
+import com.example.Aula.entity.Cliente;
+import com.example.Aula.dto.ClienteDTO;
+import com.example.Aula.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,8 +32,22 @@ public class Controller {
     }
 
     @DeleteMapping({"/{id}"})
-    public void deleteClienteById(@PathVariable Long id){
-        repository.deleteById(id);
+    public String deleteClienteById(@PathVariable Long id) {
+        try{
+            Optional<Cliente> cliente = Optional.of(repository.getById(id));
+            if(cliente.isPresent()){
+                repository.deleteById(id);
+                return  "Cliente de " + id + "deletado com sucesso!";
+            }else{
+                throw new Exception("Cliente inexistente!");
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+            return "O cliente de " + id + " não existe para ser deletado" +
+                    " Por favor, entre em contato com o atendimento 666 666 666 ";
+        }
+
     }
 
     @GetMapping
