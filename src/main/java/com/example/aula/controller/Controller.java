@@ -1,10 +1,9 @@
-package com.example.demo.controller;
+package com.example.aula.controller;
 
-import com.example.demo.entity.Cliente;
-import com.example.demo.repository.Repository;
-import com.example.demo.dto.clienteDTO;
+import com.example.aula.entity.Cliente;
+import com.example.aula.repository.Repository;
+import com.example.aula.dto.clienteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

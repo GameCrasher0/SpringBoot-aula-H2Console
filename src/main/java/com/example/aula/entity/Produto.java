@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.example.aula.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,8 +19,14 @@ public class Produto {
     public Produto(String nome, Double precoUnitario, Double precoTotal, Integer quantidade) {
         this.nome = nome;
         this.precoUnitario = precoUnitario;
-        this.precoTotal = precoTotal;
-        this.quantidade = quantidade;
+        Double total = precoUnitario * quantidade;
+        if (precoTotal == total){
+            this.precoTotal=precoTotal;
+        }else{
+            this.precoTotal = total;
+        }
+//        this.quantidade = quantidade;
+
     }
 
     public Produto() {

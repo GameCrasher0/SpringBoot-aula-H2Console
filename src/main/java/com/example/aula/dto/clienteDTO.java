@@ -1,4 +1,4 @@
-package com.example.demo.dto;
+package com.example.aula.dto;
 
 public class clienteDTO {
     private String endereco;

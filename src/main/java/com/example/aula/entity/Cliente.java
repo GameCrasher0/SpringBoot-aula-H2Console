@@ -1,6 +1,4 @@
-package com.example.demo.entity;
-
-import org.springframework.lang.NonNull;
+package com.example.aula.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,7 +11,6 @@ public class Cliente {
     private Long id;
     @NotNull(message = "O nome é obrigatorio!")
     private String nome;
-    @
     private String endereco;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Produto> produtos;
