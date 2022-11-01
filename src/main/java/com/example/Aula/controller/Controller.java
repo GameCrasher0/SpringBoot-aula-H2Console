@@ -32,8 +32,14 @@ public class Controller {
     }
 
     @DeleteMapping({"/{id}"})
-    public void deleteClienteById(@PathVariable Long id){
-        repository.deleteById(id);
+    public void deleteClienteById(@PathVariable Long id) {
+        try{
+            repository.deleteById(id);
+        }catch(Exception e){
+            System.out.println("Execeção ocorreu!");
+            e.printStackTrace();
+        }
+
     }
 
     @GetMapping
